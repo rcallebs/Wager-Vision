@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import { NavLink } from "react-router-dom";
 import Nav from "./components/Nav";
+import Bets from "./pages/Bets";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/bets" element={<Bets />} />
         </Routes>
       </main>
       <footer></footer>
