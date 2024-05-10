@@ -21,3 +21,7 @@ Registered users can view all past bets and see a details page for their betting
 - Trello
 - Mermaid
 - Material UI
+- The-Odds-API
+
+# References
+- [Trello Board](https://trello.com/b/oP3i0H8S/bet-tracker-app)
