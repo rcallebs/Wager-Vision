@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import BetSlip from "../components/BetSlip";
 
 const Bets = () => {
   const [bets, setBets] = useState([]);
 
   const fetchBets = async () => {
+    console.log("fetching bets");
     let response = await axios.get(
       "https://wager-server-946d5db015ae.herokuapp.com/bets"
     );
@@ -16,12 +18,21 @@ const Bets = () => {
     fetchBets();
   }, []);
 
+  const sports = [...new Set(bets.map((bet) => bet.sport))];
+
   return (
     <div className="bet-container">
       <h1 className="betslip">Open Bets</h1>
       <div className="bet-details">
         {bets.map((bet) => (
-          <h4 key={bet._id}>{bet.event}</h4>
+          <div key={bet._id}>
+            <BetSlip
+              pick={bet.pick}
+              odds={bet.odds}
+              event={bet.event}
+              betId={bet._id}
+            />
+          </div>
         ))}
       </div>
     </div>
