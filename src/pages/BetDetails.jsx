@@ -20,14 +20,9 @@ const BetDetails = () => {
   }, []);
 
   const formatDateTime = (dateTimeString) => {
-    if (!dateTimeString) return ""; // Handle empty or undefined dateTimeString
+    if (!dateTimeString) return "";
 
     const dateTime = new Date(dateTimeString);
-
-    // Check if the dateTime value is valid
-    // if (isNaN(dateTime.getTime())) {
-    //   return "Invalid date";
-    // }
 
     const options = {
       year: "numeric",
@@ -45,11 +40,13 @@ const BetDetails = () => {
   const calculateWinnings = () => {
     const { stakeAmount, odds } = bet;
     if (!stakeAmount || !odds) return 0;
+    let winnings;
     if (odds < 0) {
-      return stakeAmount * (100 / Math.abs(odds));
+      winnings = stakeAmount * (100 / Math.abs(odds));
     } else {
-      return stakeAmount * (odds / 100);
+      winnings = stakeAmount * (odds / 100);
     }
+    return parseFloat(winnings.toFixed(2));
   };
 
   const renderOdds = () => {
@@ -73,8 +70,10 @@ const BetDetails = () => {
         <h2>Scheduled Start: {formatDateTime(bet.commenceTime)}</h2>
         <h3>Odds: {renderOdds()}</h3>
         <h3>Wager: ${bet.stakeAmount}</h3>
-        <h3>Winnings: ${calculateWinnings()}</h3>
-        <h3>Total Payout: ${bet.stakeAmount + calculateWinnings()}</h3>
+        <h3> Potential Winnings: ${calculateWinnings()}</h3>
+        <h3>
+          Total Payout: ${(bet.stakeAmount + calculateWinnings()).toFixed(2)}
+        </h3>
       </div>
     </div>
   );
