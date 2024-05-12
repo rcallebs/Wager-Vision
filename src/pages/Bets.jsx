@@ -28,6 +28,7 @@ const Bets = () => {
           <div key={bet._id}>
             <BetSlip
               pick={bet.pick}
+              betType={bet.betType}
               odds={bet.odds}
               event={bet.event}
               betId={bet._id}

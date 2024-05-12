@@ -47,8 +47,10 @@ const BetDetails = () => {
   return (
     <div className="bet-details container">
       <div className="bet-details info">
-        <h1>{bet.pick}</h1>
-        <h2>{bet.event}</h2>
+        <h1>{bet.event}</h1>
+        <h1>
+          {bet.pick} - {bet.betType}{" "}
+        </h1>
         <h2>Scheduled Start: {formatDateTime(bet.commenceTime)}</h2>
         <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
       </div>
