@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import BetSlip from "../components/BetSlip";
+import AddBet from "./AddBet";
 
 const Bets = () => {
   const [bets, setBets] = useState([]);
@@ -23,6 +24,7 @@ const Bets = () => {
   return (
     <div className="bet-container">
       <h1 className="betslip">Open Bets</h1>
+      {/*  */}
       <div className="bet-details">
         {bets.map((bet) => (
           <div key={bet._id}>

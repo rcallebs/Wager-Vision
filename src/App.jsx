@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import { NavLink } from "react-router-dom";
 import Nav from "./components/Nav";
 import Bets from "./pages/Bets";
 import BetDetails from "./pages/BetDetails";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import { CheckSession } from "./services/Auth";
+import AddBet from "./pages/AddBet";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -29,7 +29,7 @@ const App = () => {
       checkToken();
     }
   }, []);
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="App">
@@ -43,6 +43,7 @@ const App = () => {
           <Route path="/auth/login" element={<Login setUser={setUser} />} />
           <Route path="/bets" element={<Bets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
+          <Route path="/bets/add-bet" element={<AddBet />} />
         </Routes>
       </main>
       <footer></footer>

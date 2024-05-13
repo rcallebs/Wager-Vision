@@ -1,27 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Nav = (props) => {
+const Nav = ({ user, handleLogOut }) => {
   return (
     <nav>
       <ul>
         <NavLink to="/">
           <li>Home</li>
         </NavLink>
-        <NavLink to="/bets">
-          <li>Bets</li>
-        </NavLink>
-        <NavLink to="/auth/register">
-          <li>New User</li>
-        </NavLink>
-        <NavLink to="/auth/login">
-          <li>Login</li>
-        </NavLink>
-        <NavLink to="/">
-          <div onClick={props.handleLogOut} user={props.user}>
-            <li>Logout</li>
-          </div>
-        </NavLink>
+        {user && (
+          <>
+            <NavLink to="/bets">
+              <li>Bets</li>
+            </NavLink>
+            <NavLink to="/bets/add-bet">
+              <li>Add a Bet</li>
+            </NavLink>
+            <NavLink onClick={handleLogOut}>
+              <li>Logout</li>
+            </NavLink>
+          </>
+        )}
+        {!user && (
+          <>
+            <NavLink to="/auth/register">
+              <li>New User</li>
+            </NavLink>
+            <NavLink to="/auth/login">
+              <li>Login</li>
+            </NavLink>
+          </>
+        )}
       </ul>
     </nav>
   );

@@ -17,7 +17,7 @@ const BetDetails = () => {
 
   useEffect(() => {
     fetchBet();
-    console.log(bet.commenceTime);
+    // console.log(bet.commenceTime);
   }, []);
 
   const formatDateTime = (dateTimeString) => {
@@ -41,6 +41,10 @@ const BetDetails = () => {
   const handleOutcome = () => {
     setIsOpen(false);
   };
+
+  if (bet === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="bet-details container">
