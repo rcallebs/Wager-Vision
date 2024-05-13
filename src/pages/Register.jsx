@@ -29,7 +29,7 @@ const Register = () => {
       };
 
       const res = await Client.post("/auth/register", newUserInfo);
-      navigate("/bets");
+      navigate("/auth/login");
     } catch (error) {
       console.error("Registration failed:", error);
     }

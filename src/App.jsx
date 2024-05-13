@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Bets from "./pages/Bets";
 import BetDetails from "./pages/BetDetails";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/auth/register" element={<Register />} />
+          <Route path="/auth/login" element={<Login />} />
           <Route path="/bets" element={<Bets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
         </Routes>

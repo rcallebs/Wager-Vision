@@ -14,6 +14,9 @@ const Nav = (props) => {
         <NavLink to="/auth/register">
           <li>New User</li>
         </NavLink>
+        <NavLink to="/auth/login">
+          <li>Login</li>
+        </NavLink>
       </ul>
     </nav>
   );
