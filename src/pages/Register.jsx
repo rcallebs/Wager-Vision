@@ -5,8 +5,6 @@ import { RegisterUser } from "../services/Auth";
 const Register = () => {
   let navigate = useNavigate();
 
-  //   const [error, setError] = useState("");
-
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",

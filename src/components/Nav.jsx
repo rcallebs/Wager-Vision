@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = ({ user, handleLogOut }) => {
   return (
-    <nav>
+    <nav className="nav-links">
       <ul>
         <NavLink to="/">
           <li>Home</li>
