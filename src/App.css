@@ -2,3 +2,12 @@
   border: 1px solid black;
   margin: 10px;
 }
+
+.homepage.links {
+  display: flex;
+}
+
+.nav-link {
+  margin-right: 10px;
+  list-style: none;
+}

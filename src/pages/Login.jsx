@@ -23,7 +23,7 @@ const Login = (props) => {
 
       const res = await SignInUser(loginInfo);
 
-      //   props.setUser(res);
+      props.setUser(res);
       navigate("/");
     } catch (error) {
       console.error("Error signing in:", error);
@@ -63,7 +63,7 @@ const Login = (props) => {
           </button>
         </form>
         <Link to="/auth/register">
-          <button className="btn-primary">Create Account</button>
+          <button className="need-account">Need to Register? Click Here</button>
         </Link>
       </div>
     </div>
