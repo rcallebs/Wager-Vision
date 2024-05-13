@@ -17,6 +17,11 @@ const Nav = (props) => {
         <NavLink to="/auth/login">
           <li>Login</li>
         </NavLink>
+        <NavLink to="/">
+          <div onClick={props.handleLogOut} user={props.user}>
+            <li>Logout</li>
+          </div>
+        </NavLink>
       </ul>
     </nav>
   );
