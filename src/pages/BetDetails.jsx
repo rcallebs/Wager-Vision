@@ -38,8 +38,6 @@ const BetDetails = () => {
     return new Intl.DateTimeFormat("en-US", options).format(dateTime);
   };
 
-  console.log(bet.commenceTime);
-
   const handleOutcome = () => {
     setIsOpen(false);
   };
@@ -49,7 +47,7 @@ const BetDetails = () => {
       <div className="bet-details info">
         <h1>{bet.event}</h1>
         <h1>
-          {bet.pick} - {bet.betType}{" "}
+          {bet.pick} - {bet.betType}
         </h1>
         <h2>Scheduled Start: {formatDateTime(bet.commenceTime)}</h2>
         <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
