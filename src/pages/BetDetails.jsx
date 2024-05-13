@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import BettingCalculator from "../components/BettingCalculator";
+import EventTimeFormatter from "../components/EventTimeFormatter";
 
 const BetDetails = () => {
   let { id } = useParams();
@@ -20,24 +21,6 @@ const BetDetails = () => {
     // console.log(bet.commenceTime);
   }, []);
 
-  const formatDateTime = (dateTimeString) => {
-    if (!dateTimeString) return "";
-
-    const dateTime = new Date(dateTimeString);
-
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-      timeZone: "America/New_York",
-    };
-
-    return new Intl.DateTimeFormat("en-US", options).format(dateTime);
-  };
-
   const handleOutcome = () => {
     setIsOpen(false);
   };
@@ -53,7 +36,10 @@ const BetDetails = () => {
         <h1>
           {bet.pick} - {bet.betType}
         </h1>
-        <h2>Scheduled Start: {formatDateTime(bet.commenceTime)}</h2>
+        <h2>
+          Scheduled Start:{" "}
+          <EventTimeFormatter dateTimeString={bet.commenceTime} />
+        </h2>
         <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
       </div>
     </div>
