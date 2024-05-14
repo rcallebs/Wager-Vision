@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import BettingCalculator from "../components/BettingCalculator";
 import EventTimeFormatter from "../components/EventTimeFormatter";
+import CloseButton from "../components/CloseButton";
 
 const BetDetails = () => {
   let { id } = useParams();
@@ -18,11 +19,7 @@ const BetDetails = () => {
 
   useEffect(() => {
     fetchBet();
-  }, []);
-
-  const handleOutcome = () => {
-    setOpen(false);
-  };
+  }, [id]);
 
   if (bet === null) {
     return <div>Loading...</div>;
@@ -40,6 +37,13 @@ const BetDetails = () => {
           <EventTimeFormatter dateTimeString={bet.commenceTime} />
         </h2>
         <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
+      </div>
+      <div className="close-bet">
+        {open ? (
+          <CloseButton id={id} setOpen={setOpen} />
+        ) : (
+          <div>Bet closed</div>
+        )}
       </div>
     </div>
   );

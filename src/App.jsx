@@ -9,6 +9,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import { CheckSession } from "./services/Auth";
 import AddBet from "./pages/AddBet";
+import OddsData from "./components/OddsData";
+import SportsData from "./components/SportsData";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -44,6 +46,8 @@ const App = () => {
           <Route path="/bets" element={<Bets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
           <Route path="/bets/add-bet" element={<AddBet />} />
+          <Route path="/upcoming" element={<SportsData />} />
+          <Route path="/odds" element={<OddsData />} />
         </Routes>
       </main>
       <footer></footer>
