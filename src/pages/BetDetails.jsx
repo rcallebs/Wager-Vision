@@ -9,6 +9,7 @@ const BetDetails = () => {
   let { id } = useParams();
   let [bet, setBet] = useState([]);
   const [open, setOpen] = useState(true);
+  const [outcome, setOutcome] = useState(null);
 
   const fetchBet = async () => {
     let response = await axios.get(
@@ -40,9 +41,9 @@ const BetDetails = () => {
       </div>
       <div className="close-bet">
         {open ? (
-          <CloseButton id={id} setOpen={setOpen} />
+          <CloseButton id={id} setOpen={setOpen} setOutcome={setOutcome} />
         ) : (
-          <div>Bet closed</div>
+          <div>Bet closed - Outcome: {outcome}</div>
         )}
       </div>
     </div>

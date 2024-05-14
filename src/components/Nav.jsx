@@ -16,6 +16,9 @@ const Nav = ({ user, handleLogOut }) => {
             <NavLink to="/bets/add-bet">
               <li>Add a Bet</li>
             </NavLink>
+            <NavLink to="/odds">
+              <li>Upcoming Odds</li>
+            </NavLink>
             <NavLink onClick={handleLogOut}>
               <li>Logout</li>
             </NavLink>
