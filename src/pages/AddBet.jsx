@@ -11,6 +11,7 @@ const AddBet = () => {
     odds: "",
     event: "",
     stakeAmount: "",
+    open: true,
   });
 
   const handleChange = (e) => {
@@ -22,6 +23,7 @@ const AddBet = () => {
   };
 
   const handleSubmit = async (e) => {
+    // console.log("Submitting bet:", bet);
     e.preventDefault();
     try {
       await axios.post(
@@ -29,13 +31,6 @@ const AddBet = () => {
         bet
       );
       navigate("/bets");
-      // setBet({
-      //   pick: "",
-      //   betType: "",
-      //   odds: "",
-      //   event: "",
-      //   stakeAmount: "",
-      // });
     } catch (error) {
       console.error("Error adding bet:", error);
     }

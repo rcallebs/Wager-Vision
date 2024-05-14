@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import OddsData from "../components/OddsData";
+import SportsData from "../components/SportsData";
 
 const Home = ({ user }) => {
   return (
@@ -15,6 +17,12 @@ const Home = ({ user }) => {
         <NavLink to="/auth/login" className="nav-link">
           Login
         </NavLink>
+      </div>
+      <div>
+        <OddsData />
+      </div>
+      <div>
+        <SportsData />
       </div>
     </div>
   );
