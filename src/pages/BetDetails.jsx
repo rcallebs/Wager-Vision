@@ -7,7 +7,7 @@ import EventTimeFormatter from "../components/EventTimeFormatter";
 const BetDetails = () => {
   let { id } = useParams();
   let [bet, setBet] = useState([]);
-  const [isOpen, setIsOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
   const fetchBet = async () => {
     let response = await axios.get(
@@ -18,11 +18,10 @@ const BetDetails = () => {
 
   useEffect(() => {
     fetchBet();
-    // console.log(bet.commenceTime);
   }, []);
 
   const handleOutcome = () => {
-    setIsOpen(false);
+    setOpen(false);
   };
 
   if (bet === null) {

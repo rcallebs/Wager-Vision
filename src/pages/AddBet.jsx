@@ -28,13 +28,14 @@ const AddBet = () => {
         "https://wager-server-946d5db015ae.herokuapp.com/bets",
         bet
       );
-      setBet({
-        pick: "",
-        betType: "",
-        odds: "",
-        event: "",
-        stakeAmount: "",
-      });
+      navigate("/bets");
+      // setBet({
+      //   pick: "",
+      //   betType: "",
+      //   odds: "",
+      //   event: "",
+      //   stakeAmount: "",
+      // });
     } catch (error) {
       console.error("Error adding bet:", error);
     }
