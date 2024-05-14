@@ -16,6 +16,8 @@ const BetDetails = () => {
       `https://wager-server-946d5db015ae.herokuapp.com/bets/${id}`
     );
     setBet(response.data);
+    setOpen(response.data.open);
+    setOutcome(response.data.outcome);
   };
 
   useEffect(() => {
