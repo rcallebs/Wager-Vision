@@ -11,10 +11,10 @@ const Home = ({ user }) => {
         <h2>Good teams win. Great teams cover.</h2>
       </div>
       <div className="homepage links">
-        <NavLink to="/auth/register" className="nav-link">
+        <NavLink to="/register" className="nav-link">
           New User
         </NavLink>
-        <NavLink to="/auth/login" className="nav-link">
+        <NavLink to="/login" className="nav-link">
           Login
         </NavLink>
       </div>

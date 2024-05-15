@@ -7,10 +7,21 @@ const Bets = () => {
   const [bets, setBets] = useState([]);
 
   const fetchBets = async () => {
-    console.log("fetching bets");
+    // console.log("fetching bets");
+
+    const token = localStorage.getItem("token");
     let response = await axios.get(
-      "https://wager-server-946d5db015ae.herokuapp.com/bets"
+      "https://wager-server-946d5db015ae.herokuapp.com/bets",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
+
+    // let response = await axios.get(
+    //   "https://wager-server-946d5db015ae.herokuapp.com/bets"
+    // );
     setBets(response.data);
   };
 

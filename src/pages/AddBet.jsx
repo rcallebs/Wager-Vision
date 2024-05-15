@@ -26,15 +26,41 @@ const AddBet = () => {
     // console.log("Submitting bet:", bet);
     e.preventDefault();
     try {
+      const token = localStorage.getItem("token");
       await axios.post(
         "https://wager-server-946d5db015ae.herokuapp.com/bets",
-        bet
+        bet,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       navigate("/bets");
     } catch (error) {
       console.error("Error adding bet:", error);
     }
   };
+
+  // const handleSubmit = async (e) => {
+  //   // console.log("Submitting bet:", bet);
+  //   e.preventDefault();
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     await axios.post(
+  //       "https://wager-server-946d5db015ae.herokuapp.com/bets",
+  //       bet,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     navigate("/bets");
+  //   } catch (error) {
+  //     console.error("Error adding bet:", error);
+  //   }
+  // };
 
   return (
     <div className="add-bet-container">

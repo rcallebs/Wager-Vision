@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-export const BASE_URL = "http://localhost:4000";
+export const BASE_URL = "https://wager-server-946d5db015ae.herokuapp.com";
 
 const Client = Axios.create({ baseURL: BASE_URL });
 

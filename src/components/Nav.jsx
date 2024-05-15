@@ -26,10 +26,10 @@ const Nav = ({ user, handleLogOut }) => {
         )}
         {!user && (
           <>
-            <NavLink to="/auth/register">
+            <NavLink to="/register">
               <li>New User</li>
             </NavLink>
-            <NavLink to="/auth/login">
+            <NavLink to="/login">
               <li>Login</li>
             </NavLink>
           </>

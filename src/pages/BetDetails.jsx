@@ -12,8 +12,14 @@ const BetDetails = () => {
   const [outcome, setOutcome] = useState(null);
 
   const fetchBet = async () => {
+    const token = localStorage.getItem("token");
     let response = await axios.get(
-      `https://wager-server-946d5db015ae.herokuapp.com/bets/${id}`
+      `https://wager-server-946d5db015ae.herokuapp.com/bets/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
     setBet(response.data);
     setOpen(response.data.open);

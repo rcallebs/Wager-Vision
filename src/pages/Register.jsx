@@ -25,8 +25,8 @@ const Register = () => {
         password: formValues.password,
       };
 
-      const res = await RegisterUser("/auth/register", newUserInfo);
-      navigate("/auth/login");
+      const res = await RegisterUser("/register", newUserInfo);
+      navigate("/login");
     } catch (error) {
       console.error("Registration failed:", error);
     }
