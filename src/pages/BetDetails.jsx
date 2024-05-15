@@ -4,10 +4,11 @@ import axios from "axios";
 import BettingCalculator from "../components/BettingCalculator";
 import EventTimeFormatter from "../components/EventTimeFormatter";
 import CloseButton from "../components/CloseButton";
+import { Paper, Box, Typography, Container } from "@mui/material";
 
 const BetDetails = () => {
   let { id } = useParams();
-  let [bet, setBet] = useState([]);
+  let [bet, setBet] = useState(null);
   const [open, setOpen] = useState(true);
   const [outcome, setOutcome] = useState(null);
 
@@ -30,31 +31,39 @@ const BetDetails = () => {
     fetchBet();
   }, [id]);
 
-  if (bet === null) {
-    return <div>Loading...</div>;
+  if (!bet) {
+    return <Typography>Loading...</Typography>;
   }
 
   return (
-    <div className="bet-details container">
-      <div className="bet-details info">
-        <h1>{bet.event}</h1>
-        <h1>
-          {bet.pick} - {bet.betType}
-        </h1>
-        <h2>
-          Scheduled Start:{" "}
-          <EventTimeFormatter dateTimeString={bet.commenceTime} />
-        </h2>
-        <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
-      </div>
-      <div className="close-bet">
-        {open ? (
-          <CloseButton id={id} setOpen={setOpen} setOutcome={setOutcome} />
-        ) : (
-          <div>Bet closed - Outcome: {outcome}</div>
-        )}
-      </div>
-    </div>
+    <Container maxWidth="md">
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 3 }}>
+        <Box>
+          <Typography variant="h4" gutterBottom>
+            {bet.event}
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            {bet.pick} - {bet.betType}
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            Scheduled Start:{" "}
+            <EventTimeFormatter dateTimeString={bet.commenceTime} />
+          </Typography>
+          <Box sx={{ marginY: 2 }}>
+            <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
+          </Box>
+        </Box>
+        <Box sx={{ marginTop: 2 }}>
+          {open ? (
+            <CloseButton id={id} setOpen={setOpen} setOutcome={setOutcome} />
+          ) : (
+            <Typography variant="body1">
+              Bet closed - Outcome: {outcome}
+            </Typography>
+          )}
+        </Box>
+      </Paper>
+    </Container>
   );
 };
 

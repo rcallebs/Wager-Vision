@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import OddsData from "../components/OddsData";
+import OddsData from "./OddsData";
 import SportsData from "../components/SportsData";
 import { Button, Box, Typography, Container } from "@mui/material";
 
