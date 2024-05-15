@@ -55,7 +55,7 @@ const AddBet = () => {
         }}
       >
         <Typography variant="h4" component="h2" gutterBottom>
-          Add New Bet
+          Enter Details Below
         </Typography>
         <TextField
           label="Pick"

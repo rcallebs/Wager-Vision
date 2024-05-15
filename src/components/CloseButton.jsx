@@ -16,6 +16,7 @@ const CloseButton = ({ id, setOpen, setOutcome }) => {
   const handleOutcome = async (outcome) => {
     setOpen(false);
     setOutcome(outcome);
+    const token = localStorage.getItem("token");
 
     localStorage.setItem(`bet-${id}-open`, JSON.stringify(false));
     localStorage.setItem(`bet-${id}-outcome`, outcome);
@@ -26,6 +27,11 @@ const CloseButton = ({ id, setOpen, setOutcome }) => {
         {
           open: false,
           outcome: outcome,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
     } catch (error) {

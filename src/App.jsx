@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/bets" element={<Bets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
-          <Route path="/bets/add-bet" element={<AddBet />} />
+          <Route path="/add-bet" element={<AddBet />} />
           <Route path="/upcoming" element={<SportsData />} />
           <Route path="/odds" element={<OddsData />} />
         </Routes>
