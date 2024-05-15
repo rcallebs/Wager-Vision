@@ -11,7 +11,7 @@ import { CheckSession } from "./services/Auth";
 import AddBet from "./pages/AddBet";
 import OddsData from "./pages/OddsData";
 import SportsData from "./components/SportsData";
-import BetHistory from "./pages/BetHistory";
+import SettledBets from "./pages/SettledBets";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/bets" element={<Bets />} />
-          <Route path="/settled-bets" element={<BetHistory />} />
+          <Route path="/settled-bets" element={<SettledBets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
           <Route path="/add-bet" element={<AddBet />} />
           <Route path="/upcoming" element={<SportsData />} />

@@ -3,7 +3,7 @@ import axios from "axios";
 import BetSlip from "../components/BetSlip";
 import { Box, Typography, Grid } from "@mui/material";
 
-const Bets = () => {
+const SettledBets = () => {
   const [bets, setBets] = useState([]);
 
   const fetchBets = async () => {
@@ -23,7 +23,7 @@ const Bets = () => {
     fetchBets();
   }, []);
 
-  const openBets = bets.filter((bet) => bet.open);
+  const closedBets = bets.filter((bet) => !bet.open);
 
   const styles = {
     container: {
@@ -40,7 +40,7 @@ const Bets = () => {
         Open Bets
       </Typography>
       <Grid container spacing={2} justifyContent="center">
-        {openBets.map((bet) => (
+        {closedBets.map((bet) => (
           <Grid item key={bet._id} xs={12} sm={6} md={4}>
             <BetSlip
               pick={bet.pick}
@@ -56,4 +56,4 @@ const Bets = () => {
   );
 };
 
-export default Bets;
+export default SettledBets;

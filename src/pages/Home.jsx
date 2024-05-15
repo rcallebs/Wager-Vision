@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import OddsData from "./OddsData";
-import SportsData from "../components/SportsData";
 import { Button, Box, Typography, Container } from "@mui/material";
 
 const Home = ({ user }) => {
@@ -15,19 +13,17 @@ const Home = ({ user }) => {
           Good teams win. Great teams cover.
         </Typography>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 5 }}>
-        <Button variant="contained" component={NavLink} to="/register">
-          New User
-        </Button>
-        <Button variant="contained" component={NavLink} to="/login">
-          Login
-        </Button>
-      </Box>
-      <Box>
-        <SportsData />
-      </Box>
+      {!user && (
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 5 }}>
+          <Button variant="contained" component={NavLink} to="/register">
+            New User
+          </Button>
+          <Button variant="contained" component={NavLink} to="/login">
+            Login
+          </Button>
+        </Box>
+      )}
     </Container>
   );
 };
-
 export default Home;

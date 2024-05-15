@@ -27,7 +27,7 @@ const BetSlip = ({ pick, event, odds, betId, betType }) => {
   };
 
   return (
-    <Link to={`${betId}`} style={styles.link}>
+    <Link to={`/bets/${betId}`} style={styles.link}>
       <Paper style={styles.paper}>
         <Box style={styles.detail}>
           <Typography variant="h6">Event:</Typography>
