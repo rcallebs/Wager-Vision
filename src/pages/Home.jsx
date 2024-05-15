@@ -2,29 +2,41 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import OddsData from "../components/OddsData";
 import SportsData from "../components/SportsData";
+import { Button, Box } from "@mui/material";
 
 const Home = ({ user }) => {
   return (
-    <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        marginRight: "auto",
+        marginLeft: "auto",
+      }}
+    >
       <h1>Welcome {user ? user.name : "Guest"}</h1>
       <div className="home-welcome">
         <h2>Good teams win. Great teams cover.</h2>
       </div>
       <div className="homepage links">
-        <NavLink to="/register" className="nav-link">
-          New User
-        </NavLink>
-        <NavLink to="/login" className="nav-link">
-          Login
-        </NavLink>
+        <Button variant="contained">
+          <NavLink to="/register" className="nav-link">
+            New User
+          </NavLink>
+        </Button>
+
+        <Button variant="contained">
+          <NavLink to="/login" className="nav-link">
+            Login
+          </NavLink>
+        </Button>
       </div>
-      <div>
-        <OddsData />
-      </div>
+
       <div>
         <SportsData />
       </div>
-    </div>
+    </Box>
   );
 };
 

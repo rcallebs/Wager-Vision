@@ -8,7 +8,6 @@ const Bets = () => {
 
   const fetchBets = async () => {
     // console.log("fetching bets");
-
     const token = localStorage.getItem("token");
     let response = await axios.get(
       "https://wager-server-946d5db015ae.herokuapp.com/bets",
@@ -18,10 +17,6 @@ const Bets = () => {
         },
       }
     );
-
-    // let response = await axios.get(
-    //   "https://wager-server-946d5db015ae.herokuapp.com/bets"
-    // );
     setBets(response.data);
   };
 
