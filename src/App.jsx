@@ -34,10 +34,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <nav>
-        <Nav user={user} handleLogOut={handleLogOut} />
-      </nav>
-      <main>
+      <Nav user={user} handleLogOut={handleLogOut} />
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Home user={user} />} />
           <Route path="/register" element={<Register />} />

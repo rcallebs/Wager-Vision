@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button, Box, Container, Typography } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Box,
+  Container,
+  Typography,
+  Paper,
+} from "@mui/material";
 
 const AddBet = () => {
   let navigate = useNavigate();
@@ -44,110 +51,65 @@ const AddBet = () => {
 
   return (
     <Container maxWidth="sm">
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{
-          mt: 3,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="h4" component="h2" gutterBottom>
-          Enter Details Below
-        </Typography>
-        <TextField
-          label="Pick"
-          name="pick"
-          value={bet.pick}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Event"
-          name="event"
-          value={bet.event}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Odds"
-          name="odds"
-          type="number"
-          value={bet.odds}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Stake"
-          name="stakeAmount"
-          type="number"
-          value={bet.stakeAmount}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3 }}
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 3 }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
-          Submit Bet
-        </Button>
-      </Box>
+          <Typography variant="h4" component="h2" gutterBottom>
+            Enter Details Below
+          </Typography>
+          <TextField
+            label="Pick"
+            name="pick"
+            value={bet.pick}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Event"
+            name="event"
+            value={bet.event}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Odds"
+            name="odds"
+            type="number"
+            value={bet.odds}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Stake"
+            name="stakeAmount"
+            type="number"
+            value={bet.stakeAmount}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3 }}
+          >
+            Submit Bet
+          </Button>
+        </Box>
+      </Paper>
     </Container>
   );
 };
-//   return (
-//     <div className="add-bet-container">
-//       <h2>Add New Bet</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Pick:
-//           <input
-//             type="text"
-//             name="pick"
-//             value={bet.pick}
-//             onChange={handleChange}
-//           />
-//         </label>
-//         <label>
-//           Event:
-//           <input
-//             type="text"
-//             name="event"
-//             value={bet.event}
-//             onChange={handleChange}
-//           />
-//         </label>
-//         <label>
-//           Odds:
-//           <input
-//             type="number"
-//             name="odds"
-//             value={bet.odds}
-//             onChange={handleChange}
-//           />
-//         </label>
-//         <label>
-//           Stake:
-//           <input
-//             type="number"
-//             name="stakeAmount"
-//             value={bet.stakeAmount}
-//             onChange={handleChange}
-//           />
-//         </label>
-//         {/* get all needed fields input before deleting */}
-//         <button type="submit">Submit Bet</button>
-//       </form>
-//     </div>
-//   );
-// };
 
 export default AddBet;

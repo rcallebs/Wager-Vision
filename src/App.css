@@ -1,19 +1,9 @@
-.bet-slip {
-  border: 1px solid black;
-  margin: 10px;
+.App {
+  text-align: center;
+  background-color: blanchedalmond;
+  min-height: 100vh;
 }
 
-.homepage.links {
-  display: flex;
-}
-
-.nav-link {
-  margin-right: 10px;
-}
-.nav-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
-  height: 100%;
+.main-content {
+  padding-top: 64px;
 }

@@ -1,13 +1,12 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BetSlip from "../components/BetSlip";
+import { Box, Typography, Grid } from "@mui/material";
 
 const Bets = () => {
   const [bets, setBets] = useState([]);
 
   const fetchBets = async () => {
-    // console.log("fetching bets");
     const token = localStorage.getItem("token");
     let response = await axios.get(
       "https://wager-server-946d5db015ae.herokuapp.com/bets",
@@ -24,15 +23,23 @@ const Bets = () => {
     fetchBets();
   }, []);
 
-  const sports = [...new Set(bets.map((bet) => bet.sport))];
+  const styles = {
+    container: {
+      padding: "16px",
+    },
+    header: {
+      marginBottom: "16px",
+    },
+  };
 
   return (
-    <div className="bet-container">
-      <h1 className="betslip">Open Bets</h1>
-
-      <div className="bet-details">
+    <Box style={styles.container}>
+      <Typography variant="h4" style={styles.header} textAlign="center">
+        Open Bets
+      </Typography>
+      <Grid container spacing={2} justifyContent="center">
         {bets.map((bet) => (
-          <div key={bet._id}>
+          <Grid item key={bet._id} xs={12} sm={6} md={4}>
             <BetSlip
               pick={bet.pick}
               betType={bet.betType}
@@ -40,10 +47,10 @@ const Bets = () => {
               event={bet.event}
               betId={bet._id}
             />
-          </div>
+          </Grid>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   );
 };
 
