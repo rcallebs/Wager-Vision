@@ -12,6 +12,7 @@ import AddBet from "./pages/AddBet";
 import OddsData from "./pages/OddsData";
 import SportsData from "./components/SportsData";
 import SettledBets from "./pages/SettledBets";
+import BetStats from "./pages/BetStats";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/settled-bets" element={<SettledBets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
           <Route path="/add-bet" element={<AddBet />} />
+          <Route path="/statistics" element={<BetStats />} />
           <Route path="/upcoming" element={<SportsData />} />
           <Route path="/odds" element={<OddsData />} />
         </Routes>

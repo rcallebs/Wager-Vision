@@ -33,6 +33,9 @@ const Nav = ({ user, handleLogOut }) => {
               <Button color="inherit" component={NavLink} to="/add-bet">
                 New Bet
               </Button>
+              <Button color="inherit" component={NavLink} to="/statistics">
+                Stats
+              </Button>
               <Button color="inherit" component={NavLink} to="/odds">
                 Upcoming Odds
               </Button>

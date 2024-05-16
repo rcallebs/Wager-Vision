@@ -33,7 +33,7 @@ const Register = () => {
         password: formValues.password,
       };
 
-      const res = await RegisterUser("/register", newUserInfo);
+      const res = await RegisterUser(newUserInfo);
       navigate("/login");
     } catch (error) {
       console.error("Registration failed:", error);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Paper, Box, Typography, Container } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const BetStats = () => {
   let { id } = useParams();
