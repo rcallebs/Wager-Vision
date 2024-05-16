@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { AppBar, Toolbar, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Button, Box, Menu, MenuItem } from "@mui/material";
 
 const Nav = ({ user, handleLogOut, userId }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   let navigate = useNavigate();
   return (
     <AppBar position="fixed">
@@ -12,7 +23,7 @@ const Nav = ({ user, handleLogOut, userId }) => {
         <Box
           sx={{
             display: "flex",
-            gap: 2,
+            gap: 1,
             width: "100%",
             justifyContent: "center",
             "@media (max-width: 600px)": {
@@ -24,32 +35,60 @@ const Nav = ({ user, handleLogOut, userId }) => {
           <Button color="inherit" component={NavLink} to="/">
             Home
           </Button>
-          {user ? (
+          {user && (
             <>
-              <Button color="inherit" component={NavLink} to="/bets">
-                Open Bets
-              </Button>
-              <Button color="inherit" component={NavLink} to="/settled-bets">
-                Settled Bets
-              </Button>
-              <Button color="inherit" component={NavLink} to="/add-bet">
-                New Bet
-              </Button>
               <Button
                 color="inherit"
-                component={NavLink}
-                to={`/history/${userId}`}
+                aria-controls="bets-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
               >
+                Bets
+              </Button>
+              <Menu
+                id="bets-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+              >
+                <MenuItem onClick={handleClose} component={NavLink} to="/bets">
+                  Open Bets
+                </MenuItem>
+                <MenuItem
+                  onClick={handleClose}
+                  component={NavLink}
+                  to="/settled-bets"
+                >
+                  Settled Bets
+                </MenuItem>
+                <MenuItem
+                  onClick={handleClose}
+                  component={NavLink}
+                  to="/add-bet"
+                >
+                  New Bet
+                </MenuItem>
+              </Menu>
+              <Button color="inherit" component={NavLink} to={`/history`}>
                 Stats
               </Button>
               <Button color="inherit" component={NavLink} to="/odds">
-                Upcoming Odds
+                Upcoming
               </Button>
               <Button color="inherit" onClick={handleLogOut}>
                 Logout
               </Button>
             </>
-          ) : (
+          )}
+          {!user && (
             <>
               <Button color="inherit" component={NavLink} to="/register">
                 New User

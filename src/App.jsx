@@ -49,7 +49,7 @@ const App = () => {
           <Route path="/settled-bets" element={<SettledBets />} />
           <Route path="/bets/:id" element={<BetDetails />} />
           <Route path="/add-bet" element={<AddBet />} />
-          <Route path="/history/:id" element={<BetStats />} />
+          <Route path="/history" element={<BetStats />} />
           <Route path="/upcoming" element={<SportsData />} />
           <Route path="/odds" element={<OddsData />} />
         </Routes>
