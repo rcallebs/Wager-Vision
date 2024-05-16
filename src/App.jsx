@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Bets from "./pages/Bets";
@@ -13,8 +13,10 @@ import OddsData from "./pages/OddsData";
 import SportsData from "./components/SportsData";
 import SettledBets from "./pages/SettledBets";
 import BetStats from "./pages/BetStats";
+import { Navigate } from "react-router-dom";
 
 const App = () => {
+  let navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   const checkToken = async () => {
@@ -25,6 +27,7 @@ const App = () => {
   const handleLogOut = () => {
     setUser(null);
     localStorage.clear();
+    navigate("/");
   };
 
   useEffect(() => {

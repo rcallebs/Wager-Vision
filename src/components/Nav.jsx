@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 
 const Nav = ({ user, handleLogOut, userId }) => {
+  let navigate = useNavigate();
   return (
     <AppBar position="fixed">
       <Toolbar
