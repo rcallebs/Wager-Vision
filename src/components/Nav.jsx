@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 
-const Nav = ({ user, handleLogOut }) => {
+const Nav = ({ user, handleLogOut, userId }) => {
   return (
     <AppBar position="fixed">
       <Toolbar
@@ -33,7 +33,11 @@ const Nav = ({ user, handleLogOut }) => {
               <Button color="inherit" component={NavLink} to="/add-bet">
                 New Bet
               </Button>
-              <Button color="inherit" component={NavLink} to="/statistics">
+              <Button
+                color="inherit"
+                component={NavLink}
+                to={`/history/${userId}`}
+              >
                 Stats
               </Button>
               <Button color="inherit" component={NavLink} to="/odds">
