@@ -141,7 +141,9 @@ const BetStats = () => {
           <Typography>Closed Bet Stats</Typography>
           <WinningStats totalWinnings={stats.totalWinningsClosedWinBets} />
           <LossStats totalLoss={stats.totalLoss} />
-          <Typography variant="h5">Total Profit/Loss:</Typography>
+          <Typography variant="h5">
+            {totalProfit >= 0 ? "Profit" : "Loss"}:
+          </Typography>
           <Typography style={{ color: totalProfit >= 0 ? "green" : "red" }}>
             {formattedProfit}
           </Typography>
