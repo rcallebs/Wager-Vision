@@ -7,7 +7,7 @@ const Nav = ({ user, handleLogOut, userId }) => {
   return (
     <AppBar position="fixed">
       <Toolbar
-        sx={{ justifyContent: "center", overflowX: "auto", width: "95%" }}
+        sx={{ justifyContent: "center", overflow: "scroll", width: "95%" }}
       >
         <Box
           sx={{
@@ -16,7 +16,8 @@ const Nav = ({ user, handleLogOut, userId }) => {
             width: "100%",
             justifyContent: "center",
             "@media (max-width: 600px)": {
-              justifyContent: "flex-start",
+              justifyContent: "center",
+              overflow: "scroll",
             },
           }}
         >
