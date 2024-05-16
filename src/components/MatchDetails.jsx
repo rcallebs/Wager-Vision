@@ -1,23 +1,8 @@
-// import React from "react";
-
-// const MatchDetails = ({ isOpen, match, onClose }) => {
-//   return (
-//     <div
-//       className={`modal ${isOpen ? "show" : ""}`}
-//       tabIndex="-1"
-//       role="dialog"
-//     >
-//       {/* Modal Content */}
-//     </div>
-//   );
-// };
-
-// export default MatchDetails;
 import React from "react";
 
 const MatchDetails = ({ isOpen, match, onClose }) => {
   if (!match) {
-    return null; // Return null if match is not available
+    return null;
   }
 
   return (

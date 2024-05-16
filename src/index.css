@@ -26,3 +26,6 @@ nav {
 .nav-links li:hover {
   background-color: #ddd;
 }
+.loss {
+  text-decoration: line-through;
+}

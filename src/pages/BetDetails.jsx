@@ -8,7 +8,7 @@ import { Paper, Box, Typography, Container } from "@mui/material";
 
 const BetDetails = () => {
   let { id } = useParams();
-  let [bet, setBet] = useState(null);
+  const [bet, setBet] = useState(null);
   const [open, setOpen] = useState(true);
   const [outcome, setOutcome] = useState(null);
 
@@ -50,7 +50,11 @@ const BetDetails = () => {
             <EventTimeFormatter dateTimeString={bet.commenceTime} />
           </Typography>
           <Box sx={{ marginY: 2 }}>
-            <BettingCalculator stakeAmount={bet.stakeAmount} odds={bet.odds} />
+            <BettingCalculator
+              stakeAmount={bet.stakeAmount}
+              odds={bet.odds}
+              outcome={outcome}
+            />
           </Box>
         </Box>
         <Box sx={{ marginTop: 2 }}>

@@ -37,7 +37,7 @@ const SettledBets = () => {
   return (
     <Box style={styles.container}>
       <Typography variant="h4" style={styles.header} textAlign="center">
-        Open Bets
+        Settled Bets
       </Typography>
       <Grid container spacing={2} justifyContent="center">
         {closedBets.map((bet) => (

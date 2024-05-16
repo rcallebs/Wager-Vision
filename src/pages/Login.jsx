@@ -2,11 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { SignInUser } from "../services/Auth";
+import {
+  Container,
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+} from "@mui/material";
 
 const Login = (props) => {
   let navigate = useNavigate();
-  const [user, setUser] = useState();
-
   const [formValues, setFormValues] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
@@ -31,42 +37,58 @@ const Login = (props) => {
   };
 
   return (
-    <div className="signin flex-col max-container">
-      <h1>Sign In</h1>
-      <div className="card-overlay flex-col centered">
-        <form className="warpper flex-col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="Your Email"
-              value={formValues.email}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formValues.password}
-              required
-            />
-          </div>
-          <button
-            className="btn-primary"
-            disabled={!formValues.email || !formValues.password}
-          >
+    <Container maxWidth="sm">
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 8 }}>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Typography variant="h4" component="h1" gutterBottom>
             Sign In
-          </button>
-        </form>
-        <Link to="/auth/register">
-          <button className="need-account">Need to Register? Click Here</button>
-        </Link>
-      </div>
-    </div>
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={formValues.email}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={formValues.password}
+              onChange={handleChange}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              sx={{ mt: 3, mb: 2 }}
+              disabled={!formValues.email || !formValues.password}
+            >
+              Sign In
+            </Button>
+            <Box display="flex" justifyContent="center">
+              <Link to="/auth/register" style={{ textDecoration: "none" }}>
+                <Button variant="text" color="primary">
+                  Need to Register? Click Here
+                </Button>
+              </Link>
+            </Box>
+          </Box>
+        </Box>
+      </Paper>
+    </Container>
   );
 };
 

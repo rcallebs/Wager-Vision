@@ -1,6 +1,7 @@
 import React from "react";
+import { Typography } from "@mui/material";
 
-const BettingCalculator = ({ stakeAmount, odds }) => {
+const BettingCalculator = ({ stakeAmount, odds, outcome }) => {
   const calculateWinnings = () => {
     if (!stakeAmount || !odds) return 0;
     let winnings;
@@ -20,12 +21,25 @@ const BettingCalculator = ({ stakeAmount, odds }) => {
     }
   };
 
+  const totalPayout = stakeAmount + calculateWinnings();
+
   return (
     <>
-      <h3>Odds: {renderOdds()}</h3>
-      <h3>Wager: ${stakeAmount}</h3>
-      <h3>Potential Winnings: ${calculateWinnings()}</h3>
-      <h3>Total Payout: ${(stakeAmount + calculateWinnings()).toFixed(2)}</h3>
+      <Typography variant="h6">Odds: {renderOdds()}</Typography>
+      <Typography variant="h6">Wager: ${stakeAmount}</Typography>
+      <Typography variant="h6">
+        Potential Winnings: ${calculateWinnings()}
+      </Typography>
+      <Typography variant="h6">
+        Total Payout:{" "}
+        <span
+          style={{
+            textDecoration: outcome === "Loss" ? "line-through" : "none",
+          }}
+        >
+          ${totalPayout.toFixed(2)}
+        </span>
+      </Typography>
     </>
   );
 };

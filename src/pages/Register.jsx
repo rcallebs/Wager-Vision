@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegisterUser } from "../services/Auth";
+import {
+  Container,
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+} from "@mui/material";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -33,67 +41,78 @@ const Register = () => {
   };
 
   return (
-    <div className="signin flex-col max-container">
-      <h1>
-        Create <br /> Your Account
-      </h1>
-      <div className="form-wrapper centered">
-        <form className="wrapper" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <input
-              onChange={handleChange}
+    <Container maxWidth="sm">
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 8 }}>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Typography variant="h4" component="h1" gutterBottom>
+            Create Your Account
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
               name="name"
-              type="text"
-              placeholder="Your Name"
+              autoComplete="name"
+              autoFocus
               value={formValues.name}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <input
               onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
               name="email"
-              type="email"
-              placeholder="example@example.com"
+              autoComplete="email"
               value={formValues.email}
-              required
-            />
-          </div>
-
-          <div className="input-wrapper">
-            <input
               onChange={handleChange}
-              type="password"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               name="password"
-              placeholder="Password"
-              value={formValues.password}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <input
-              onChange={handleChange}
+              label="Password"
               type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              value={formValues.confirmPassword}
-              required
+              id="password"
+              autoComplete="new-password"
+              value={formValues.password}
+              onChange={handleChange}
             />
-          </div>
-          <button
-            className="btn-primary"
-            type="submit"
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }
-          >
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </div>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              id="confirmPassword"
+              autoComplete="new-password"
+              value={formValues.confirmPassword}
+              onChange={handleChange}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              sx={{ mt: 3, mb: 2 }}
+              disabled={
+                !formValues.email ||
+                !formValues.password ||
+                formValues.password !== formValues.confirmPassword
+              }
+            >
+              Sign Up
+            </Button>
+          </Box>
+        </Box>
+      </Paper>
+    </Container>
   );
 };
 
