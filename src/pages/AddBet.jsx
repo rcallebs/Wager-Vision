@@ -72,6 +72,7 @@ const AddBet = () => {
             onChange={handleChange}
             fullWidth
             margin="normal"
+            required
           />
           <TextField
             label="Event"
@@ -89,6 +90,7 @@ const AddBet = () => {
             onChange={handleChange}
             fullWidth
             margin="normal"
+            required
           />
           <TextField
             label="Stake"
@@ -98,6 +100,7 @@ const AddBet = () => {
             onChange={handleChange}
             fullWidth
             margin="normal"
+            required
           />
           <TextField
             label="Start Time"
