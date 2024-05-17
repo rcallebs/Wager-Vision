@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import BettingCalculator from "../components/BettingCalculator";
 import EventTimeFormatter from "../components/EventTimeFormatter";
 import CloseButton from "../components/CloseButton";
-import { Paper, Box, Typography, Container } from "@mui/material";
+import { Paper, Box, Typography, Container, Button } from "@mui/material";
 
 const BetDetails = () => {
   let { id } = useParams();
+  const navigate = useNavigate();
   const [bet, setBet] = useState(null);
   const [open, setOpen] = useState(true);
   const [outcome, setOutcome] = useState(null);
@@ -30,6 +31,23 @@ const BetDetails = () => {
   useEffect(() => {
     fetchBet();
   }, [id]);
+
+  const handleDelete = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      await axios.delete(
+        `https://wager-server-946d5db015ae.herokuapp.com/bets/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      navigate("/bets");
+    } catch (error) {
+      console.error("Error deleting bet", error);
+    }
+  };
 
   if (!bet) {
     return <Typography>Loading...</Typography>;
@@ -65,6 +83,11 @@ const BetDetails = () => {
               Bet closed - Outcome: {outcome}
             </Typography>
           )}
+        </Box>
+        <Box sx={{ marginTop: 2 }}>
+          <Button variant="contained" color="secondary" onClick={handleDelete}>
+            Cancel Bet
+          </Button>
         </Box>
       </Paper>
     </Container>
