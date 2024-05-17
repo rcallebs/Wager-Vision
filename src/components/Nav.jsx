@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem } from "@mui/material";
 
-const Nav = ({ user, handleLogOut, userId }) => {
+const Nav = ({ user, handleLogOut }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -15,29 +15,45 @@ const Nav = ({ user, handleLogOut, userId }) => {
   };
 
   let navigate = useNavigate();
+
+  const buttonStyle = {
+    mx: 2,
+  };
+
   return (
     <AppBar position="fixed">
       <Toolbar
-        sx={{ justifyContent: "center", overflow: "scroll", width: "95%" }}
+        sx={{
+          justifyContent: "center",
+          overflow: "scroll",
+          width: "100%",
+          display: "flex",
+        }}
       >
         <Box
           sx={{
             display: "flex",
-            gap: 1,
             width: "100%",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            flexWrap: "nowrap",
             "@media (max-width: 600px)": {
-              justifyContent: "center",
               overflow: "scroll",
+              display: "flex",
+              justifyContent: "space-evenly",
+              padding: "10px",
+              margin: "0",
+              width: "100%",
             },
           }}
         >
-          <Button color="inherit" component={NavLink} to="/">
+          <Button sx={buttonStyle} color="inherit" component={NavLink} to="/">
             Home
           </Button>
           {user && (
             <>
               <Button
+                sx={buttonStyle}
                 color="inherit"
                 aria-controls="bets-menu"
                 aria-haspopup="true"
@@ -77,30 +93,37 @@ const Nav = ({ user, handleLogOut, userId }) => {
                   New Bet
                 </MenuItem>
               </Menu>
-              <Button color="inherit" component={NavLink} to={`/history`}>
+              <Button
+                sx={buttonStyle}
+                color="inherit"
+                component={NavLink}
+                to={`/history`}
+              >
                 Stats
               </Button>
-              <Button color="inherit" component={NavLink} to="/odds">
+              <Button
+                sx={buttonStyle}
+                color="inherit"
+                component={NavLink}
+                to="/odds"
+              >
                 Upcoming
               </Button>
-              <Button color="inherit" onClick={handleLogOut}>
-                Logout
-              </Button>
             </>
           )}
-          {!user && (
-            <>
-              <Button color="inherit" component={NavLink} to="/register">
-                New User
-              </Button>
-              <Button color="inherit" component={NavLink} to="/login">
-                Login
-              </Button>
-            </>
-          )}
-          <Button color="inherit" component={NavLink} to="/discussion">
+          <Button
+            sx={buttonStyle}
+            color="inherit"
+            component={NavLink}
+            to="/discussion"
+          >
             Comments
           </Button>
+          {user && (
+            <Button sx={buttonStyle} color="inherit" onClick={handleLogOut}>
+              Logout
+            </Button>
+          )}
         </Box>
       </Toolbar>
     </AppBar>
