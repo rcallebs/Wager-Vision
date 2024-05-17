@@ -86,7 +86,7 @@ const BetDetails = () => {
         </Box>
         <Box sx={{ marginTop: 2 }}>
           <Button variant="contained" color="secondary" onClick={handleDelete}>
-            Cancel Bet
+            Remove Bet from History
           </Button>
         </Box>
       </Paper>

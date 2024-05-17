@@ -19,6 +19,7 @@ const AddBet = () => {
     odds: "",
     event: "",
     stakeAmount: "",
+    commenceTime: "",
     open: true,
   });
 
@@ -97,6 +98,18 @@ const AddBet = () => {
             onChange={handleChange}
             fullWidth
             margin="normal"
+          />
+          <TextField
+            label="Start Time"
+            name="commenceTime"
+            type="datetime-local"
+            value={bet.commenceTime}
+            onChange={(e) => setCommenceTime(e.target.value)}
+            fullWidth
+            smargin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <Button
             type="submit"
