@@ -113,7 +113,10 @@ const BetStats = () => {
     boxShadow: 24,
     p: 4,
   };
-  const totalProfit = stats.totalWinningsClosedWinBets - stats.totalLoss;
+  const totalProfit =
+    stats.totalWinningsClosedWinBets -
+    stats.totalStakeClosedBets -
+    stats.totalLoss;
   const formattedProfit = totalProfit.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
