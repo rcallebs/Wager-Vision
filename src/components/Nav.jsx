@@ -98,6 +98,9 @@ const Nav = ({ user, handleLogOut, userId }) => {
               </Button>
             </>
           )}
+          <Button color="inherit" component={NavLink} to="/discussion">
+            Comments
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>

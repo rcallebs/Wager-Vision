@@ -14,6 +14,7 @@ import SportsData from "./components/SportsData";
 import SettledBets from "./pages/SettledBets";
 import BetStats from "./pages/BetStats";
 import { Navigate } from "react-router-dom";
+import Posts from "./pages/Posts";
 
 const App = () => {
   let navigate = useNavigate();
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/history" element={<BetStats />} />
           <Route path="/upcoming" element={<SportsData />} />
           <Route path="/odds" element={<OddsData />} />
+          <Route path="/discussion" element={<Posts />} />
         </Routes>
       </main>
       <footer></footer>
