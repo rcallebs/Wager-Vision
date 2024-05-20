@@ -3,15 +3,22 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem } from "@mui/material";
 
 const Nav = ({ user, handleLogOut }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const [betsMenuAnchorEl, setBetsMenuAnchorEl] = useState(null);
+  const [postsMenuAnchorEl, setPostsMenuAnchorEl] = useState(null);
+  const isBetsMenuOpen = Boolean(betsMenuAnchorEl);
+  const isPostsMenuOpen = Boolean(postsMenuAnchorEl);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleBetsMenuClick = (event) => {
+    setBetsMenuAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handlePostsMenuClick = (event) => {
+    setPostsMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setBetsMenuAnchorEl(null);
+    setPostsMenuAnchorEl(null);
   };
 
   let navigate = useNavigate();
@@ -25,7 +32,6 @@ const Nav = ({ user, handleLogOut }) => {
       <Toolbar
         sx={{
           justifyContent: "center",
-          overflow: "scroll",
           width: "100%",
           display: "flex",
         }}
@@ -57,15 +63,15 @@ const Nav = ({ user, handleLogOut }) => {
                 color="inherit"
                 aria-controls="bets-menu"
                 aria-haspopup="true"
-                onClick={handleClick}
+                onClick={handleBetsMenuClick}
               >
                 Bets
               </Button>
               <Menu
                 id="bets-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
+                anchorEl={betsMenuAnchorEl}
+                open={isBetsMenuOpen}
+                onClose={handleMenuClose}
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "center",
@@ -75,18 +81,22 @@ const Nav = ({ user, handleLogOut }) => {
                   horizontal: "center",
                 }}
               >
-                <MenuItem onClick={handleClose} component={NavLink} to="/bets">
+                <MenuItem
+                  onClick={handleMenuClose}
+                  component={NavLink}
+                  to="/bets"
+                >
                   Open Bets
                 </MenuItem>
                 <MenuItem
-                  onClick={handleClose}
+                  onClick={handleMenuClose}
                   component={NavLink}
                   to="/settled-bets"
                 >
                   Settled Bets
                 </MenuItem>
                 <MenuItem
-                  onClick={handleClose}
+                  onClick={handleMenuClose}
                   component={NavLink}
                   to="/add-bet"
                 >
@@ -114,11 +124,41 @@ const Nav = ({ user, handleLogOut }) => {
           <Button
             sx={buttonStyle}
             color="inherit"
-            component={NavLink}
-            to="/discussion"
+            aria-controls="posts-menu"
+            aria-haspopup="true"
+            onClick={handlePostsMenuClick}
           >
-            Comments
+            Discussion
           </Button>
+          <Menu
+            id="posts-menu"
+            anchorEl={postsMenuAnchorEl}
+            open={isPostsMenuOpen}
+            onClose={handleMenuClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+          >
+            <MenuItem
+              onClick={handleMenuClose}
+              component={NavLink}
+              to="/discussion"
+            >
+              Discussion Board
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={NavLink}
+              to="/discussion/post"
+            >
+              Post
+            </MenuItem>
+          </Menu>
           {user && (
             <Button sx={buttonStyle} color="inherit" onClick={handleLogOut}>
               Logout
