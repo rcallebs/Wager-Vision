@@ -40,7 +40,7 @@ const CloseButton = ({ id, setOpen, setOutcome }) => {
   };
 
   return (
-    <div>
+    <div className="closeButtons">
       <button onClick={() => handleOutcome("Win")}>Set as Win</button>
       <button onClick={() => handleOutcome("Loss")}>Set as Loss</button>
     </div>
