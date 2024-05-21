@@ -44,13 +44,17 @@ const BetSlip = ({ pick, event, odds, betId, betType, outcome, spread }) => {
         <Box style={styles.detail}>
           <Typography variant="body1">Pick:</Typography>
           <Typography variant="body1">
-            {pick} - {betType}
+            {pick}
+            {betType && ` - ${betType}`}
           </Typography>
         </Box>
         {betType === "spread" && (
           <Box style={styles.detail}>
             <Typography variant="body2">Spread:</Typography>
-            <Typography variant="body2">{spread}</Typography>
+            <Typography variant="body2">
+              {spread > 0 ? "+" : ""}
+              {spread}
+            </Typography>
           </Box>
         )}
         <Box style={styles.detail}>

@@ -11,8 +11,10 @@ import discussion from "../assets/images/discussion.png";
 const Nav = ({ user, handleLogOut }) => {
   const [betsMenuAnchorEl, setBetsMenuAnchorEl] = useState(null);
   const [postsMenuAnchorEl, setPostsMenuAnchorEl] = useState(null);
+  const [upcomingMenuAnchorEl, setUpcomingMenuAnchorEl] = useState(null);
   const isBetsMenuOpen = Boolean(betsMenuAnchorEl);
   const isPostsMenuOpen = Boolean(postsMenuAnchorEl);
+  const isUpcomingMenuOpen = Boolean(upcomingMenuAnchorEl);
 
   const handleBetsMenuClick = (event) => {
     setBetsMenuAnchorEl(event.currentTarget);
@@ -22,9 +24,14 @@ const Nav = ({ user, handleLogOut }) => {
     setPostsMenuAnchorEl(event.currentTarget);
   };
 
+  const handleUpcomingMenuClick = (event) => {
+    setUpcomingMenuAnchorEl(event.currentTarget);
+  };
+
   const handleMenuClose = () => {
     setBetsMenuAnchorEl(null);
     setPostsMenuAnchorEl(null);
+    setUpcomingMenuAnchorEl(null);
   };
 
   let navigate = useNavigate();
@@ -132,15 +139,47 @@ const Nav = ({ user, handleLogOut }) => {
               <Button
                 sx={buttonStyle}
                 color="inherit"
-                component={NavLink}
-                to="/odds"
+                aria-controls="upcoming-menu"
+                aria-haspopup="true"
+                onClick={handleUpcomingMenuClick}
               >
                 <img
                   src={upcoming}
-                  alt="Bets"
+                  alt="Upcoming"
                   style={{ width: 24, height: 24 }}
                 />
               </Button>
+              <Menu
+                id="upcoming-menu"
+                anchorEl={upcomingMenuAnchorEl}
+                open={isUpcomingMenuOpen}
+                onClose={handleMenuClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+              >
+                <MenuItem
+                  onClick={() => {
+                    handleMenuClose();
+                    navigate("/odds");
+                  }}
+                >
+                  Upcoming Games
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleMenuClose();
+                    navigate("/nfl");
+                  }}
+                >
+                  NFL Schedule
+                </MenuItem>
+              </Menu>
             </>
           )}
           <Button

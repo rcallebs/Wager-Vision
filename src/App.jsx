@@ -10,13 +10,14 @@ import Login from "./pages/Login";
 import { CheckSession } from "./services/Auth";
 import AddBet from "./pages/AddBet";
 import OddsData from "./pages/OddsData";
-import SportsData from "./components/SportsData";
+import SportsData from "./components/NFLOdds";
 import SettledBets from "./pages/SettledBets";
 import BetStats from "./pages/BetStats";
 import { Navigate } from "react-router-dom";
 import Posts from "./pages/Posts";
 import AddPost from "./pages/AddPost";
-import SpinningCoin from "./components/SpinningCoin";
+import NFLDetails from "./components/NFLDetails";
+import NFLodds from "./components/NFLOdds";
 
 const App = () => {
   let navigate = useNavigate();
@@ -54,7 +55,8 @@ const App = () => {
             <Route path="/bets/:id" element={<BetDetails />} />
             <Route path="/add-bet" element={<AddBet />} />
             <Route path="/history" element={<BetStats />} />
-            <Route path="/upcoming" element={<SportsData />} />
+            <Route path="/nfl" element={<NFLodds />} />
+            <Route path="/nfl/:id" element={<NFLDetails />} />
             <Route path="/odds" element={<OddsData />} />
             <Route path="/discussion" element={<Posts />} />
             <Route path="/discussion/post" element={<AddPost />} />
