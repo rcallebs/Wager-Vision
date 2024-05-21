@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../assets/styles/SpinningCoin.css";
-
 import nfl from "../assets/images/nfl.png";
 import mlb from "../assets/images/mlb.png";
 import sportsbettings from "../assets/images/sportsbetting.png";

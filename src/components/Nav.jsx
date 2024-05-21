@@ -56,8 +56,10 @@ const Nav = ({ user, handleLogOut }) => {
               overflow: "scroll",
               display: "flex",
               justifyContent: "space-evenly",
-              padding: "5px",
-              margin: "0",
+              padding: "0",
+              margin: "0px",
+              marginLeft: "6px",
+              margin: "6px",
             },
           }}
         >
@@ -180,7 +182,7 @@ const Nav = ({ user, handleLogOut }) => {
               component={NavLink}
               to="/discussion/post"
             >
-              Post
+              New Post
             </MenuItem>
           </Menu>
           {user && (

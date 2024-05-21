@@ -39,14 +39,15 @@ const SettledBets = () => {
       <Typography variant="h4" style={styles.header} textAlign="center">
         Settled Bets
       </Typography>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2}>
         {closedBets.map((bet) => (
-          <Grid item key={bet._id} xs={12} sm={6} md={4}>
+          <Grid item key={bet._id} xs={12}>
             <BetSlip
               pick={bet.pick}
               betType={bet.betType}
               odds={bet.odds}
               event={bet.event}
+              commenceTime={bet.commenceTime}
               betId={bet._id}
               outcome={bet.outcome}
             />

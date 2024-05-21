@@ -39,9 +39,9 @@ const Bets = () => {
       <Typography variant="h4" style={styles.header} textAlign="center">
         Open Bets
       </Typography>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2}>
         {openBets.map((bet) => (
-          <Grid item key={bet._id} xs={12} sm={6} md={4}>
+          <Grid item key={bet._id} xs={12}>
             <BetSlip
               pick={bet.pick}
               betType={bet.betType}

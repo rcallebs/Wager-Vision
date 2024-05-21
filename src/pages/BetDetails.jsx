@@ -32,6 +32,15 @@ const BetDetails = () => {
     fetchBet();
   }, [id]);
 
+  const getBackgroundColor = () => {
+    if (outcome === "Win") {
+      return "rgba(0, 255, 0, 0.1)";
+    } else if (outcome === "Loss") {
+      return "rgba(255, 0, 0, 0.1)";
+    }
+    return "#ffffff";
+  };
+
   const handleDelete = async () => {
     const token = localStorage.getItem("token");
     try {
@@ -55,7 +64,10 @@ const BetDetails = () => {
 
   return (
     <Container maxWidth="md">
-      <Paper elevation={3} sx={{ padding: 3, marginTop: 3 }}>
+      <Paper
+        elevation={3}
+        sx={{ padding: 3, marginTop: 3, backgroundColor: getBackgroundColor() }}
+      >
         <Box>
           <Typography variant="h4" gutterBottom>
             {bet.event}
