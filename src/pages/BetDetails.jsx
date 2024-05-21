@@ -70,10 +70,11 @@ const BetDetails = () => {
       >
         <Box>
           <Typography variant="h4" gutterBottom>
-            {bet.event}
+            Event: {bet.event}
           </Typography>
           <Typography variant="h5" gutterBottom>
-            {bet.pick} - {bet.betType}
+            Pick: {bet.pick} <br />
+            Type - {bet.betType}
           </Typography>
           <Typography variant="h6" gutterBottom>
             Scheduled Start:{" "}

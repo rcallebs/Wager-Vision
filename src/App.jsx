@@ -41,25 +41,27 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <Nav user={user} handleLogOut={handleLogOut} />
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home user={user} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/bets" element={<Bets />} />
-          <Route path="/settled-bets" element={<SettledBets />} />
-          <Route path="/bets/:id" element={<BetDetails />} />
-          <Route path="/add-bet" element={<AddBet />} />
-          <Route path="/history" element={<BetStats />} />
-          <Route path="/upcoming" element={<SportsData />} />
-          <Route path="/odds" element={<OddsData />} />
-          <Route path="/discussion" element={<Posts />} />
-          <Route path="/discussion/post" element={<AddPost />} />
-        </Routes>
-      </main>
-      <footer></footer>
+    <div className="background-container">
+      <div className="App">
+        <Nav user={user} handleLogOut={handleLogOut} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home user={user} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login setUser={setUser} />} />
+            <Route path="/bets" element={<Bets />} />
+            <Route path="/settled-bets" element={<SettledBets />} />
+            <Route path="/bets/:id" element={<BetDetails />} />
+            <Route path="/add-bet" element={<AddBet />} />
+            <Route path="/history" element={<BetStats />} />
+            <Route path="/upcoming" element={<SportsData />} />
+            <Route path="/odds" element={<OddsData />} />
+            <Route path="/discussion" element={<Posts />} />
+            <Route path="/discussion/post" element={<AddPost />} />
+          </Routes>
+        </main>
+        <footer></footer>
+      </div>
     </div>
   );
 };

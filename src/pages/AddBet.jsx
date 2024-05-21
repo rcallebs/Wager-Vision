@@ -8,6 +8,10 @@ import {
   Container,
   Typography,
   Paper,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 
 const AddBet = () => {
@@ -28,6 +32,15 @@ const AddBet = () => {
     setBet((prevBet) => ({
       ...prevBet,
       [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (e) => {
+    const { name, value } = e.target;
+    setBet((prevBet) => ({
+      ...prevBet,
+      [name]: value,
+      odds: "",
     }));
   };
 
@@ -82,6 +95,19 @@ const AddBet = () => {
             fullWidth
             margin="normal"
           />
+          <FormControl fullWidth margin="normal">
+            <InputLabel id="betType">Bet Type</InputLabel>
+            <Select
+              labelId="betType"
+              name="betType"
+              value={bet.betType}
+              onChange={handleSelectChange}
+              required
+            >
+              <MenuItem value="ml">Moneyline</MenuItem>
+              <MenuItem value="spread">Spread</MenuItem>
+            </Select>
+          </FormControl>
           <TextField
             label="Odds"
             name="odds"
@@ -103,6 +129,7 @@ const AddBet = () => {
             required
           />
           <TextField
+            sx={{ marginTop: "16px", marginBottom: "8px" }}
             label="Start Time"
             name="commenceTime"
             type="datetime-local"
