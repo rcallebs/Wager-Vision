@@ -17,6 +17,7 @@ const BetStats = () => {
     totalStakeClosedBets: 0,
     totalWinningsClosedWinBets: 0,
     totalLoss: 0,
+    totalStakeOpenBets: 0,
   });
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
@@ -43,6 +44,9 @@ const BetStats = () => {
     const totalBets = bets.length;
     const openBets = bets.filter((bet) => bet.open).length;
     const closedBets = totalBets - openBets;
+    const totalStakeOpenBets = bets
+      .filter((bet) => bet.open)
+      .reduce((sum, bet) => sum + bet.stakeAmount, 0);
     const totalStakeClosedBets = bets
       .filter((bet) => !bet.open)
       .reduce((sum, bet) => sum + bet.stakeAmount, 0);
@@ -63,6 +67,7 @@ const BetStats = () => {
       totalStakeClosedBets,
       totalWinningsClosedWinBets,
       totalLoss,
+      totalStakeOpenBets,
     });
   };
 
@@ -81,14 +86,30 @@ const BetStats = () => {
   const handlePieClick = (elements) => {
     if (elements.length > 0) {
       const { index } = elements[0];
+
       if (index === 1) {
         setModalContent(
-          `Total Stake for Closed Bets: $${stats.totalStakeClosedBets.toFixed(
-            2
+          `Total Stake for Closed Bets: ${stats.totalStakeClosedBets.toLocaleString(
+            "en-US",
+            {
+              style: "currency",
+              currency: "USD",
+            }
           )}`
         );
-        setModalOpen(true);
+      } else if (index === 0) {
+        setModalContent(
+          `Total Stake for Open Bets: ${stats.totalStakeOpenBets.toLocaleString(
+            "en-US",
+            {
+              style: "currency",
+              currency: "USD",
+            }
+          )}`
+        );
       }
+
+      setModalOpen(true);
     }
   };
 

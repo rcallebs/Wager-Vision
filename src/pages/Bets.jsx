@@ -47,6 +47,7 @@ const Bets = () => {
               betType={bet.betType}
               odds={bet.odds}
               event={bet.event}
+              spread={bet.spread}
               commenceTime={bet.commenceTime}
               betId={bet._id}
               outcome={bet.outcome}

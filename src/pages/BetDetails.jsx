@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
+import Confetti from "react-confetti";
 
 const BetDetails = () => {
   let { id } = useParams();
@@ -27,6 +28,7 @@ const BetDetails = () => {
   const [open, setOpen] = useState(true);
   const [outcome, setOutcome] = useState(null);
   const [editingField, setEditingField] = useState(null);
+  const [confettiVisible, setConfettiVisible] = useState(false);
 
   const fetchBet = async () => {
     const token = localStorage.getItem("token");
@@ -46,6 +48,15 @@ const BetDetails = () => {
   useEffect(() => {
     fetchBet();
   }, [id]);
+
+  useEffect(() => {
+    if (outcome === "Win") {
+      setConfettiVisible(true);
+      setTimeout(() => {
+        setConfettiVisible(false);
+      }, 4500);
+    }
+  }, [outcome]);
 
   const getBackgroundColor = () => {
     if (outcome === "Win") {
@@ -110,6 +121,7 @@ const BetDetails = () => {
 
   return (
     <Container maxWidth="md">
+      {confettiVisible && <Confetti />}
       <Paper
         elevation={3}
         sx={{ padding: 3, marginTop: 3, backgroundColor: getBackgroundColor() }}
