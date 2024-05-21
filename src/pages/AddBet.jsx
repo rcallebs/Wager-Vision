@@ -12,6 +12,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Grid,
 } from "@mui/material";
 
 const AddBet = () => {
@@ -25,6 +26,7 @@ const AddBet = () => {
     stakeAmount: "",
     commenceTime: "",
     open: true,
+    spread: "",
   });
 
   const handleChange = (e) => {
@@ -40,7 +42,6 @@ const AddBet = () => {
     setBet((prevBet) => ({
       ...prevBet,
       [name]: value,
-      odds: "",
     }));
   };
 
@@ -95,19 +96,39 @@ const AddBet = () => {
             fullWidth
             margin="normal"
           />
-          <FormControl fullWidth margin="normal">
-            <InputLabel id="betType">Bet Type</InputLabel>
-            <Select
-              labelId="betType"
-              name="betType"
-              value={bet.betType}
-              onChange={handleSelectChange}
-              required
-            >
-              <MenuItem value="ml">Moneyline</MenuItem>
-              <MenuItem value="spread">Spread</MenuItem>
-            </Select>
-          </FormControl>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: bet.betType === "spread" ? "1fr 1fr" : "1fr",
+              gap: 2,
+              width: "100%",
+            }}
+          >
+            <FormControl fullWidth>
+              <InputLabel id="betType">Bet Type</InputLabel>
+              <Select
+                labelId="betType"
+                name="betType"
+                value={bet.betType}
+                onChange={handleSelectChange}
+                required
+              >
+                <MenuItem value="ml">Moneyline</MenuItem>
+                <MenuItem value="spread">Spread</MenuItem>
+              </Select>
+            </FormControl>
+            {bet.betType === "spread" && (
+              <TextField
+                label="Spread"
+                name="spread"
+                type="number"
+                value={bet.spread}
+                onChange={handleChange}
+                fullWidth
+                required
+              />
+            )}
+          </Box>
           <TextField
             label="Odds"
             name="odds"
@@ -134,9 +155,9 @@ const AddBet = () => {
             name="commenceTime"
             type="datetime-local"
             value={bet.commenceTime}
-            onChange={(e) => setCommenceTime(e.target.value)}
+            onChange={handleChange}
             fullWidth
-            smargin="normal"
+            margin="normal"
             InputLabelProps={{
               shrink: true,
             }}
