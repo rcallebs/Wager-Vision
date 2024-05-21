@@ -28,3 +28,5 @@ Registered users can view all past bets and see a details page for their betting
 # References
 
 - [Trello Board](https://trello.com/b/oP3i0H8S/bet-tracker-app)
+- <a href="https://www.flaticon.com/free-icons/bet" title="Bet icons">Navigation Icons found on - Flaticon</a>
+- [Animations](https://www.w3schools.com/css/css3_animations.asp)

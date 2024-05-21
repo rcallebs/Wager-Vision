@@ -49,6 +49,7 @@ const Bets = () => {
               event={bet.event}
               commenceTime={bet.commenceTime}
               betId={bet._id}
+              outcome={bet.outcome}
             />
           </Grid>
         ))}

@@ -6,10 +6,12 @@ function SportsData() {
 
   const getSports = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/sports`);
+      const response = await axios.get(
+        `https://wager-server-946d5db015ae.herokuapp.com/api/sports`
+      );
       setSports(response.data);
     } catch (error) {
-      console.error("Error fetching sports:", error);
+      console.error("Error fetching available sports:", error);
     }
   };
 

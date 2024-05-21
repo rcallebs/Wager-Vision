@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem } from "@mui/material";
+import betIcon from "../assets/images/betIcon.png";
+import analytics from "../assets/images/analytics.png";
+import logout from "../assets/images/logout.png";
+import home from "../assets/images/home.png";
+import upcoming from "../assets/images/upcoming.png";
+import discussion from "../assets/images/discussion.png";
 
 const Nav = ({ user, handleLogOut }) => {
   const [betsMenuAnchorEl, setBetsMenuAnchorEl] = useState(null);
@@ -28,7 +34,11 @@ const Nav = ({ user, handleLogOut }) => {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar
+      sx={{
+        position: "fixed",
+      }}
+    >
       <Toolbar
         sx={{
           justifyContent: "center",
@@ -39,7 +49,6 @@ const Nav = ({ user, handleLogOut }) => {
         <Box
           sx={{
             display: "flex",
-            width: "100%",
             justifyContent: "space-evenly",
             alignItems: "center",
             flexWrap: "nowrap",
@@ -47,14 +56,13 @@ const Nav = ({ user, handleLogOut }) => {
               overflow: "scroll",
               display: "flex",
               justifyContent: "space-evenly",
-              padding: "10px",
+              padding: "5px",
               margin: "0",
-              width: "100%",
             },
           }}
         >
           <Button sx={buttonStyle} color="inherit" component={NavLink} to="/">
-            Home
+            <img src={home} alt="home" style={{ width: 24, height: 24 }} />
           </Button>
           {user && (
             <>
@@ -65,7 +73,11 @@ const Nav = ({ user, handleLogOut }) => {
                 aria-haspopup="true"
                 onClick={handleBetsMenuClick}
               >
-                Bets
+                <img
+                  src={betIcon}
+                  alt="Bets"
+                  style={{ width: 24, height: 24 }}
+                />
               </Button>
               <Menu
                 id="bets-menu"
@@ -109,7 +121,11 @@ const Nav = ({ user, handleLogOut }) => {
                 component={NavLink}
                 to={`/history`}
               >
-                Stats
+                <img
+                  src={analytics}
+                  alt="stats"
+                  style={{ width: 24, height: 24 }}
+                />
               </Button>
               <Button
                 sx={buttonStyle}
@@ -117,7 +133,11 @@ const Nav = ({ user, handleLogOut }) => {
                 component={NavLink}
                 to="/odds"
               >
-                Upcoming
+                <img
+                  src={upcoming}
+                  alt="Bets"
+                  style={{ width: 24, height: 24 }}
+                />
               </Button>
             </>
           )}
@@ -128,7 +148,11 @@ const Nav = ({ user, handleLogOut }) => {
             aria-haspopup="true"
             onClick={handlePostsMenuClick}
           >
-            Discussion
+            <img
+              src={discussion}
+              alt="Discussions"
+              style={{ width: 24, height: 24 }}
+            />
           </Button>
           <Menu
             id="posts-menu"
@@ -161,7 +185,11 @@ const Nav = ({ user, handleLogOut }) => {
           </Menu>
           {user && (
             <Button sx={buttonStyle} color="inherit" onClick={handleLogOut}>
-              Logout
+              <img
+                src={logout}
+                alt="logout"
+                style={{ width: 24, height: 24 }}
+              />
             </Button>
           )}
         </Box>

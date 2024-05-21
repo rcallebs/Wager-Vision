@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Paper, Typography, Box } from "@mui/material";
 
-const BetSlip = ({ pick, event, odds, betId, betType }) => {
+const BetSlip = ({ pick, event, odds, betId, betType, outcome }) => {
   const renderOdds = () => (odds >= 0 ? `+${odds}` : `${odds}`);
+  const getBackgroundColor = () => {
+    if (outcome === "Win") {
+      return "rgba(0, 255, 0, 0.1)";
+    } else if (outcome === "Loss") {
+      return "rgba(255, 0, 0, 0.1)";
+    }
+    return "#ffffff";
+  };
 
   const styles = {
     link: {
@@ -16,7 +24,7 @@ const BetSlip = ({ pick, event, odds, betId, betType }) => {
     paper: {
       padding: "16px",
       margin: "8px",
-      backgroundColor: "#ffffff",
+      backgroundColor: getBackgroundColor(),
       boxShadow: "0 1px 3px rgba(0, 0, 0, 0.2)",
     },
     detail: {

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Box, Typography, Container } from "@mui/material";
+import SpinningCoin from "../components/SpinningCoin";
 
 const Home = ({ user }) => {
   return (
@@ -23,6 +24,7 @@ const Home = ({ user }) => {
           </Button>
         </Box>
       )}
+      <SpinningCoin />
     </Container>
   );
 };

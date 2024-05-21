@@ -1,0 +1,17 @@
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.spinning-coin img {
+  padding-top: 25px;
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  animation: spin 3s linear infinite;
+}

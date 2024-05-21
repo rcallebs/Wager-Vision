@@ -16,6 +16,7 @@ import BetStats from "./pages/BetStats";
 import { Navigate } from "react-router-dom";
 import Posts from "./pages/Posts";
 import AddPost from "./pages/AddPost";
+import SpinningCoin from "./components/SpinningCoin";
 
 const App = () => {
   let navigate = useNavigate();

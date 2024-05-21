@@ -14,15 +14,18 @@ function OddsData() {
   const getOdds = async () => {
     try {
       setIsFetching(true);
-      const response = await axios.get(`http://localhost:4000/api/odds`, {
-        params: {
-          sportKey: "upcoming",
-          regions: "us",
-          markets: "h2h",
-          oddsFormat: "american",
-          dateFormat: "iso",
-        },
-      });
+      const response = await axios.get(
+        `https://wager-server-946d5db015ae.herokuapp.com/api/odds`,
+        {
+          params: {
+            sportKey: "upcoming",
+            regions: "us",
+            markets: "h2h",
+            oddsFormat: "american",
+            dateFormat: "iso",
+          },
+        }
+      );
       setOdds(response.data);
     } catch (error) {
       setError("Error fetching odds. Please try again later.");

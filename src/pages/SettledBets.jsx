@@ -48,6 +48,7 @@ const SettledBets = () => {
               odds={bet.odds}
               event={bet.event}
               betId={bet._id}
+              outcome={bet.outcome}
             />
           </Grid>
         ))}
