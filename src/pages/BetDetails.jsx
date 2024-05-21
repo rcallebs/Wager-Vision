@@ -130,7 +130,7 @@ const BetDetails = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           {editingField === "event" ? (
@@ -143,7 +143,7 @@ const BetDetails = () => {
             />
           ) : (
             <Typography variant="h4" gutterBottom>
-              Event: {bet.event}
+              {bet.event}
             </Typography>
           )}
           <IconButton onClick={() => handleEdit("event")}>
@@ -160,7 +160,7 @@ const BetDetails = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           {editingField === "pick" ? (
@@ -190,7 +190,7 @@ const BetDetails = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           {editingField === "betType" ? (
@@ -209,6 +209,8 @@ const BetDetails = () => {
           ) : (
             <Typography variant="h5" gutterBottom>
               Type: {bet.betType}
+              {bet.betType === "spread" &&
+                `  ${bet.spread > 0 ? "+" : ""}${bet.spread}`}
             </Typography>
           )}
           <IconButton onClick={() => handleEdit("betType")}>
@@ -225,7 +227,7 @@ const BetDetails = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           {editingField === "commenceTime" ? (
@@ -256,7 +258,7 @@ const BetDetails = () => {
           )}
         </Box>
 
-        <Box sx={{ marginY: 2 }}>
+        <Box sx={{ marginY: 1 }}>
           <BettingCalculator
             stakeAmount={bet.stakeAmount}
             odds={bet.odds}
