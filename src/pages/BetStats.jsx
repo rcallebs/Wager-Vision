@@ -150,11 +150,11 @@ const BetStats = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6">Total Bets: {stats.totalBets}</Typography>
-          <Box sx={{ width: "100%", maxWidth: 250, margin: "0 auto" }}>
+          <Box sx={{ width: "100%", maxWidth: 400, margin: "0 auto" }}>
             <Pie
               data={pieDataTotalBets}
-              width={300}
-              height={300}
+              width={400}
+              height={400}
               options={{
                 onClick: (event, elements) => handlePieClick(elements),
               }}
