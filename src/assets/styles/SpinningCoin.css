@@ -13,5 +13,5 @@
   height: 120px;
   display: block;
   margin: 0 auto;
-  animation: spin 3s linear infinite;
+  animation: spin 4s alternate-reverse linear infinite;
 }

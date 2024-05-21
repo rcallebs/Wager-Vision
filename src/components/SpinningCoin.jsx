@@ -6,25 +6,17 @@ import mlb from "../assets/images/mlb.png";
 import sportsbettings from "../assets/images/sportsbetting.png";
 
 const SpinningCoin = () => {
-  const [speed] = useState(3);
-  const [logos] = useState([nfl, mlb, sportsbettings]);
+  const logos = [nfl, mlb, sportsbettings];
   const [currentLogo, setCurrentLogo] = useState(nfl);
   const [logoIndex, setLogoIndex] = useState(0);
-  const [spinCount, setSpinCount] = useState(0);
 
   useEffect(() => {
-    // change logo at an interval
     const logoInterval = setInterval(() => {
-      setSpinCount((prevCount) => prevCount + 1);
-
-      if (spinCount >= 2) {
-        setLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
-        setSpinCount(0); // teset spin count
-      }
-    }, 1000); // change the logo every second
+      setLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
+    }, 2000);
 
     return () => clearInterval(logoInterval);
-  }, [logos.length, spinCount]);
+  }, [logos]);
 
   useEffect(() => {
     setCurrentLogo(logos[logoIndex]);
