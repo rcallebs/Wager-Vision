@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import EventTimeFormatter from "./EventTimeFormatter";
+import EventTimeFormatter from "../components/EventTimeFormatter";
 
 function NFLDetails() {
   const { id } = useParams();
@@ -59,7 +59,7 @@ function NFLDetails() {
       <p>
         Away Team: {matchDetails.away_team} @ {matchDetails.home_team}
       </p>
-      <h3>Odds</h3>
+      <h3>Moneyline Odds</h3>
       {draftKingsBookmaker && h2hMarket ? (
         <div>
           <p>

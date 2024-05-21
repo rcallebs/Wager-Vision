@@ -16,7 +16,7 @@ import BetStats from "./pages/BetStats";
 import { Navigate } from "react-router-dom";
 import Posts from "./pages/Posts";
 import AddPost from "./pages/AddPost";
-import NFLDetails from "./components/NFLDetails";
+import NFLDetails from "./pages/NFLDetails";
 import NFLodds from "./components/NFLOdds";
 
 const App = () => {
