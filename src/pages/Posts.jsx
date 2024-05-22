@@ -27,23 +27,9 @@ const Posts = () => {
     post: {
       padding: "16px",
       margin: "16px 0",
-      position: "relative",
-    },
-    userDetails: {
-      position: "absolute",
-      top: "28px",
-      left: "8px",
-    },
-    userName: {
-      fontWeight: "bold",
-      marginRight: "8px",
     },
     postContent: {
-      marginLeft: "64px",
       marginTop: "8px",
-    },
-    postTime: {
-      fontSize: "0.8rem",
     },
   };
 
@@ -56,25 +42,12 @@ const Posts = () => {
         {posts.map((post) => (
           <Grid item key={post._id} xs={12} md={8}>
             <Paper elevation={3} style={styles.post}>
-              <Box style={styles.userDetails}>
-                <Typography variant="body1" style={styles.userName}>
-                  {post.userId.name || "Unknown"}
-                </Typography>
-                <Typography variant="body2" style={styles.postTime}>
-                  {new Date(post.createdAt).toLocaleString("en-US", {
-                    month: "2-digit",
-                    day: "2-digit",
-                    year: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: true,
-                  })}
-                </Typography>
-              </Box>
-              <Divider />
-              <Box style={styles.postContent}>
-                <Typography variant="h6">{post.sport}</Typography>
-                <Typography variant="body1">{post.post}</Typography>
+              <Box>
+                <Divider />
+                <Box style={styles.postContent}>
+                  <Typography variant="h6">{post.sport}</Typography>
+                  <Typography variant="body1">{post.post}</Typography>
+                </Box>
               </Box>
             </Paper>
           </Grid>
