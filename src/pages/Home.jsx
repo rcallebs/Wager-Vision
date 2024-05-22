@@ -7,7 +7,7 @@ const Home = ({ user }) => {
   return (
     <Container maxWidth="md" sx={{ textAlign: "center", mt: 5 }}>
       <Typography variant="h3" component="h1" gutterBottom>
-        Welcome {user ? user.name : ",please log in to continue"}
+        Welcome {user ? user.name : "in"}
       </Typography>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h5" component="h2">

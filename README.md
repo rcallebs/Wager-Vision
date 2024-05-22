@@ -3,6 +3,7 @@
 Keep track of all your sports wagers in one app as well as getting real-time live odds for upcoming sporting events from the top bookmakers.
 
 [App](https://gamble-guide-a75586487f58.herokuapp.com/)
+[Backend Repo](https://github.com/rcallebs/Wager-Vision-Server)
 
 # By: Ryan Callebs
 
