@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import EventTimeFormatter from "../components/EventTimeFormatter";
+import nfl from "../assets/images/nfl.png";
 
 function NFLDetails() {
   const { id } = useParams();
@@ -77,39 +78,51 @@ function NFLDetails() {
 
   return (
     <div>
-      <h2>Game Details</h2>
-      <p>
-        <EventTimeFormatter dateTimeString={matchDetails.commence_time} />
-      </p>
-      <p>
-        {matchDetails.away_team} at {matchDetails.home_team}
-      </p>
-      <h3>Current Moneyline Odds</h3>
-      {draftKingsBookmaker && h2hMarket ? (
-        <div>
-          <p>
-            {matchDetails.away_team} to Win: {formattedAwayTeamOdds}
-          </p>
-          <p>
-            {matchDetails.home_team} to Win: {formattedHomeTeamOdds}
-          </p>
-        </div>
-      ) : (
-        <p>Odds not available</p>
-      )}
-      <h3>Current Spread</h3>
-      {draftKingsBookmaker && spreadMarket ? (
-        <div>
-          <p>
-            {matchDetails.away_team} {formattedAwayTeamSpread}
-          </p>
-          <p>
-            {matchDetails.home_team} {formattedHomeTeamSpread}
-          </p>
-        </div>
-      ) : (
-        <p>Spread not available</p>
-      )}
+      <div className="nfllogo">
+        <img src={nfl} />
+      </div>
+      <div
+        className="gameinfo"
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          padding: "20px",
+          borderRadius: "5px",
+        }}
+      >
+        <h2>Game Details</h2>
+        <p>
+          <EventTimeFormatter dateTimeString={matchDetails.commence_time} />
+        </p>
+        <p>
+          {matchDetails.away_team} at {matchDetails.home_team}
+        </p>
+        <h3>Current Moneyline Odds</h3>
+        {draftKingsBookmaker && h2hMarket ? (
+          <div>
+            <p>
+              {matchDetails.away_team} to Win: {formattedAwayTeamOdds}
+            </p>
+            <p>
+              {matchDetails.home_team} to Win: {formattedHomeTeamOdds}
+            </p>
+          </div>
+        ) : (
+          <p>Odds not available</p>
+        )}
+        <h3>Current Spread</h3>
+        {draftKingsBookmaker && spreadMarket ? (
+          <div>
+            <p>
+              {matchDetails.away_team} {formattedAwayTeamSpread}
+            </p>
+            <p>
+              {matchDetails.home_team} {formattedHomeTeamSpread}
+            </p>
+          </div>
+        ) : (
+          <p>Spread not available</p>
+        )}
+      </div>
     </div>
   );
 }

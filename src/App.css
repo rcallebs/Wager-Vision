@@ -1,11 +1,18 @@
 * {
   font-family: "Space Mono" !important;
 }
+body {
+  margin: auto;
+}
 .App {
   text-align: center;
-  background-color: hsla(0, 0%, 0%, 0.334);
+  background-color: hsla(59, 37%, 45%, 0.334);
   min-height: 100vh;
+  min-width: 100vw;
   color: rgb(0, 0, 0);
+  background-image: url("./assets/images/background.jpg");
+  background-size: contain;
+  background-attachment: fixed;
 }
 
 .main-content {

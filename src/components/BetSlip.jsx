@@ -6,11 +6,11 @@ const BetSlip = ({ pick, event, odds, betId, betType, outcome, spread }) => {
   const renderOdds = () => (odds >= 0 ? `+${odds}` : `${odds}`);
   const getBackgroundColor = () => {
     if (outcome === "Win") {
-      return "rgba(0, 255, 0, 0.1)";
+      return "rgba(0, 255, 0, 0.5)";
     } else if (outcome === "Loss") {
-      return "rgba(255, 0, 0, 0.1)";
+      return "rgba(255, 0, 0, 0.5)";
     }
-    return "#ffffff";
+    return "#8ed1fc";
   };
 
   const styles = {

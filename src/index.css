@@ -1,20 +1,25 @@
 .container {
-  display: flex;
+  display: grid;
   flex-direction: column;
+  justify-content: center;
 }
 
 .row {
-  display: flex;
+  display: block;
   width: 100%;
 }
 
 .col-12 {
   flex: 1;
+  max-width: 90vw;
+  justify-self: center;
 }
 .match-card {
   transition: background-color 0.3s, transform 0.3s;
   border: solid black 1px;
   margin: 5px;
+  display: block !important;
+  background-color: #f0f0f0b7;
 }
 
 .match-card:hover {
@@ -22,4 +27,13 @@
   cursor: pointer;
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nfllogo img {
+  width: 15%;
+  height: auto;
+}
+
+.nflcontaineroverview {
+  justify-content: center;
 }

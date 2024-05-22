@@ -5,7 +5,6 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import WinningStats from "../components/WinningStats";
 import LossStats from "../components/LossStats";
-
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const BetStats = () => {
@@ -150,11 +149,11 @@ const BetStats = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6">Total Bets: {stats.totalBets}</Typography>
-          <Box sx={{ width: "100%", maxWidth: 400, margin: "0 auto" }}>
+          <Box sx={{ width: "100%", maxWidth: 300, margin: "0 auto" }}>
             <Pie
               data={pieDataTotalBets}
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               options={{
                 onClick: (event, elements) => handlePieClick(elements),
               }}
@@ -162,15 +161,26 @@ const BetStats = () => {
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography>Closed Bet Stats</Typography>
-          <WinningStats totalWinnings={stats.totalWinningsClosedWinBets} />
-          <LossStats totalLoss={stats.totalLoss} />
-          <Typography variant="h5">
-            {totalProfit >= 0 ? "Profit" : "Loss"}:
-          </Typography>
-          <Typography style={{ color: totalProfit >= 0 ? "green" : "red" }}>
-            {formattedProfit}
-          </Typography>
+          <Box
+            sx={{
+              border: "1px solid black",
+              padding: "20px",
+              borderRadius: "5px",
+              backgroundColor: "white",
+            }}
+          >
+            <Typography variant="h6" style={{ color: "black" }}>
+              Closed Bet Stats
+            </Typography>
+            <WinningStats totalWinnings={stats.totalWinningsClosedWinBets} />
+            <LossStats totalLoss={stats.totalLoss} />
+            <Typography variant="h5">
+              {totalProfit >= 0 ? "Profit" : "Loss"}:
+            </Typography>
+            <Typography style={{ color: totalProfit >= 0 ? "green" : "red" }}>
+              {formattedProfit}
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
       <Modal

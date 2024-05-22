@@ -3,6 +3,7 @@ import axios from "axios";
 import MatchCard from "../components/MatchCard";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import nfl from "../assets/images/nfl.png";
 
 function NFLOdds() {
   const [odds, setOdds] = useState(null);
@@ -60,6 +61,9 @@ function NFLOdds() {
 
   return (
     <div className="nflcontaineroverview">
+      <div className="nfllogo">
+        <img src={nfl} />
+      </div>
       <div className="nflscheduledetails">
         <h1>Upcoming NFL Games</h1>
         {isFetching && <p>Loading...</p>}
@@ -67,7 +71,6 @@ function NFLOdds() {
           <div className="container">
             {Object.entries(groupMatchesByDate(odds)).map(([date, matches]) => (
               <div key={date}>
-                {/* <h3>{date}</h3> */}
                 {matches.map((match) => (
                   <div className="row" key={match.id}>
                     <div className="col-12">
