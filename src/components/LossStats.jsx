@@ -7,7 +7,7 @@ const LossStats = ({ totalLoss }) => {
     currency: "USD",
   });
   return (
-    <Typography variant="body1">Total Loss: {formattedTotalLoss}</Typography>
+    <Typography variant="body1">Total Losses: {formattedTotalLoss}</Typography>
   );
 };
 

@@ -20,6 +20,12 @@ Registered users can view all past bets and see a details page for their betting
     <img src="image-2.png" style="width: 40%;">
 </div>
 
+## Future Features
+
+Have the ability to add multiple legs to a bet to create parlays.
+Be able to click on an upcoming game's team and have those details (start time, odds, event, pick) prefilled where the user only needs to enter their wager amount.
+Add more detailed charts on the user statistics page breaking down bets by sport and when they were placed.
+
 ## Technologies Used
 
 - MongoDB
@@ -33,9 +39,11 @@ Registered users can view all past bets and see a details page for their betting
 - Material UI
 - The-Odds-API
 - Chart.js
+- Date-fns
 
 # References
 
+- [Material UI](https://mui.com/material-ui/getting-started/)
 - [Trello Board](https://trello.com/b/oP3i0H8S/bet-tracker-app)
 - [The-odds-api guide](https://the-odds-api.com/liveapi/guides/v4/#overview)
 - [The-odds-api github](https://github.com/the-odds-api)
@@ -44,4 +52,8 @@ Registered users can view all past bets and see a details page for their betting
 - [Animations more](https://stackoverflow.com/questions/54758648/how-to-create-a-simple-spinning-animation-for-an-image-in-react)
 - [Chart.js](https://www.chartjs.org/docs/latest/)
 - [Background Image](https://unsplash.com/photos/blue-and-white-striped-textile-yUDldIrqW5E)
+- [Date-fns](https://date-fns.org/docs/Getting-Started)
 - Google Fonts
+- John Jacobs
+- Jan Horak
+- Quentin Donnelly
