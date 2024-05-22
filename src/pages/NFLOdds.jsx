@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MatchCard from "../components/MatchCard";
-import MatchDetails from "../components/MatchDetails";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 
 function NFLOdds() {
   const [odds, setOdds] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
-  const [selectedMatch, setSelectedMatch] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -44,10 +42,6 @@ function NFLOdds() {
     navigate(`/nfl/${match.id}`);
   };
 
-  const handleCloseModal = () => {
-    setSelectedMatch(null);
-  };
-
   const groupMatchesByDate = (matches) => {
     const groupedMatches = matches.reduce((acc, match) => {
       const date = format(new Date(match.commence_time), "MM-dd-yyyy");
@@ -65,27 +59,31 @@ function NFLOdds() {
   }
 
   return (
-    <div>
-      <h2>Upcoming NFL Games</h2>
-      {isFetching && <p>Loading...</p>}
-      {!isFetching && odds && (
-        <div className="container">
-          {Object.entries(groupMatchesByDate(odds)).map(([date, matches]) => (
-            <div key={date}>
-              <h3>{date}</h3>
-              <div className="row">
+    <div className="nflcontaineroverview">
+      <div className="nflscheduledetails">
+        <h1>Upcoming NFL Games</h1>
+        {isFetching && <p>Loading...</p>}
+        {!isFetching && odds && (
+          <div className="container">
+            {Object.entries(groupMatchesByDate(odds)).map(([date, matches]) => (
+              <div key={date}>
+                {/* <h3>{date}</h3> */}
                 {matches.map((match) => (
-                  <MatchCard
-                    key={match.id}
-                    match={match}
-                    onClick={() => handleMatchClick(match)}
-                  />
+                  <div className="row" key={match.id}>
+                    <div className="col-12">
+                      <MatchCard
+                        className="match-card"
+                        match={match}
+                        onClick={() => handleMatchClick(match)}
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,3 +1,6 @@
+* {
+  font-family: "Space Mono" !important;
+}
 .App {
   text-align: center;
   background-color: hsla(0, 0%, 0%, 0.334);

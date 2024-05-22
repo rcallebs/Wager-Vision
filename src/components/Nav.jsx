@@ -64,7 +64,6 @@ const Nav = ({ user, handleLogOut }) => {
               display: "flex",
               justifyContent: "space-evenly",
               padding: "0",
-              margin: "0px",
               marginLeft: "6px",
               margin: "6px",
             },

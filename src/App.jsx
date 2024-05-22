@@ -10,14 +10,12 @@ import Login from "./pages/Login";
 import { CheckSession } from "./services/Auth";
 import AddBet from "./pages/AddBet";
 import OddsData from "./pages/OddsData";
-import SportsData from "./components/NFLOdds";
 import SettledBets from "./pages/SettledBets";
 import BetStats from "./pages/BetStats";
-import { Navigate } from "react-router-dom";
 import Posts from "./pages/Posts";
 import AddPost from "./pages/AddPost";
 import NFLDetails from "./pages/NFLDetails";
-import NFLodds from "./components/NFLOdds";
+import NFLodds from "./pages/NFLOdds";
 
 const App = () => {
   let navigate = useNavigate();

@@ -69,19 +69,21 @@ const BetDetails = () => {
   };
 
   const handleDelete = async () => {
-    const token = localStorage.getItem("token");
-    try {
-      await axios.delete(
-        `https://wager-server-946d5db015ae.herokuapp.com/bets/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      navigate("/bets");
-    } catch (error) {
-      console.error("Error deleting bet", error);
+    if (window.confirm("Permanently delete record?")) {
+      const token = localStorage.getItem("token");
+      try {
+        await axios.delete(
+          `https://wager-server-946d5db015ae.herokuapp.com/bets/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        navigate("/bets");
+      } catch (error) {
+        console.error("Error deleting bet", error);
+      }
     }
   };
 
